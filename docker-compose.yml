@@ -1,0 +1,13 @@
+﻿version: '3.9'
+
+services:
+  flappy-alby:
+    image: ${DOCKER_REGISTRY}-flappy-alby
+    build:
+      context: .
+      dockerfile: FlappyAlby.API/Dockerfile
+
+  postgres:
+    image: postgres:${POSTGRES_TAG-latest}
+    container_name: ${POSTGRES_CONTAINER_NAME-postgres}
+    restart: unless-stopped
