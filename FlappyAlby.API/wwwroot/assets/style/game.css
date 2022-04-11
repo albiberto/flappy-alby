@@ -1,0 +1,76 @@
+﻿#area {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgb(230, 230, 230, .5);
+    height: 400px;
+    width: 600px;
+    border: black solid 1px;
+
+    overflow: hidden;
+    z-index: 0;
+}
+
+#player {
+    position: absolute;
+    background-image: url('../img/player.jpg');
+
+    z-index: 1;
+}
+
+.block {
+    position: absolute;
+    background: darkgreen;
+
+    z-index: 2;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 2%;
+
+    font-weight: bold;
+    text-align: center;
+    vertical-align: center;
+
+    z-index: 5;
+}
+
+.row-right {
+    width: 10%;
+}
+
+.row-left {
+    width: 15%;
+}
+
+#game-footer {
+    font-size: 1.5em;
+}
+
+#level {
+    border: black solid 1px;
+    background: deeppink;
+}
+
+.level {
+    font-weight: bold;
+    color: deeppink;
+}
+
+#percentage {
+    border: black solid 1px;
+    background: lightblue;
+}
+
+#speed {
+    color: black;
+}
+
+#lives {
+    color: deeppink;
+}

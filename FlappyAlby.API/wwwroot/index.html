@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flappy Alby</title>
+    <meta charset="UTF-8">
+
+    <link href="assets/favicon.png" rel="shortcut icon" type="image/jpg"/>
+
+    <link href="assets/style/site.css" rel="stylesheet" type="text/css">
+    <link href="assets/style/game.css" rel="stylesheet" type="text/css">
+    <link href="assets/style/overlay.css" rel="stylesheet" type="text/css">
+
+    <script src="assets/game/app.js" type="module"></script>
+</head>
+<body>
+
+<div id="container">
+    <div id="game">
+        <div id="header">
+            <div id="header-title">Flappy Alby</div>
+        </div>
+        <div id="area">
+
+            <!-- OVERLAY -->
+            <div id="overlay">
+                <div>
+                    <div id="overlay-title">Start Game!</div>
+                    <div id="overlay-score"></div>
+                </div>
+
+                <div class="overlay-content">
+                    <div id="overlay-leaderboard"></div>
+                    <div id="overlay-player">
+                        <label for="overlay-player-input" id="overlay-player-label">Enter Your Nickname:</label>
+                        <input id="overlay-player-input" maxlength="15" placeholder="Nickname" type="text"/>
+                    </div>
+                </div>
+
+                <div>
+                    <button id="overlay-button" type="button">Start</button>
+                </div>
+            </div>
+            <!-- END OVERLAY -->
+
+            <div class="row" id="game-header">
+                <div class="row-left" id="level">Start Game</div>
+                <div class="row-right" id="percentage"></div>
+            </div>
+
+            <div class="row" id="game-footer">
+                <div class="row-left" id="lives"></div>
+                <div class="row-right" id="speed"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

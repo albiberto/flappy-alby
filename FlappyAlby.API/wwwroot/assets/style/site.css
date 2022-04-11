@@ -1,0 +1,46 @@
+﻿@font-face {
+    font-family: nintendo;
+    src: url('../fonts/Nintendo.ttf');
+}
+
+body {
+    font-size: 16px;
+    font-family: nintendo, serif, sans-serif;
+}
+
+#container {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    width: 100vw;
+
+    background: #DDD;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game {
+    width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 10vh 0 0;
+}
+
+#header-title {
+    font-size: 4em;
+    height: 9vh;
+}
