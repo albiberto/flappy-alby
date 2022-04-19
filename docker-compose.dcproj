@@ -9,11 +9,16 @@
         <DockerServiceName>flappyalby.api</DockerServiceName>
     </PropertyGroup>
     <ItemGroup>
-        <None Include=".env"/>
+        <None Include=".env" />
         <None Include="docker-compose.override.yml">
             <DependentUpon>docker-compose.yml</DependentUpon>
         </None>
-        <None Include="docker-compose.yml"/>
-        <None Include=".dockerignore"/>
+        <None Include="docker-compose.yml" />
+        <None Include=".dockerignore" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="infrastructure\grafana\grafana.ini" />
+      <Content Include="infrastructure\grafana\provisioning\datasources\datasources.yml" />
+      <Content Include="infrastructure\loki\loki-config.yml" />
     </ItemGroup>
 </Project>

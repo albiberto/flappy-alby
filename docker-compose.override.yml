@@ -1,8 +1,20 @@
 ﻿version: '3.9'
-
+   
+#configs:
+#  grafana_config:
+#    file: ./infrastructure/grafana/grafana.ini
+#  grafana_datasources_config:
+#    file: ./infrastructure/grafana/provisioning/datasources/datasources.yml
+#  loki_config:
+#    file: ./infrastructure/loki/loki-config.yml   
+    
 volumes:
   postgres_data:
     name: ${POSTGRES_VOLUME}
+  grafana_data:
+    name: ${GRAFANA_VOLUME}
+  loki_data:
+    name: ${LOKI_VOLUME}
 
 services:
   flappy-alby:
@@ -19,3 +31,27 @@ services:
       - ${POSTGRES_PORT-5432}:${POSTGRES_PORT-5432}
     volumes:
       - postgres_data:/var/lib/postgresql
+      
+  grafana:
+    ports:
+      - ${GRAFANA_PORT-3000}:${GRAFANA_PORT-3000}
+#    configs:
+#      - source: grafana_config
+#        target: /etc/grafana/grafana.ini
+#      - source: grafana_datasources_config
+#        target: /etc/grafana/provisioning/datasources/datasources.yml
+    volumes:                                                                                                                      
+      - grafana_data:/var/lib/grafana                                                                                             # Storage Grafana's data
+      - ./infrastructure/grafana/provisioning/datasources/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml   # Move to configuration
+      - ./infrastructure/grafana/grafana.ini:/etc/grafana/grafana.ini                                                             # Move to configuration                             
+        
+  loki:
+    ports:
+      - ${LOKI_PORT-3100}:${LOKI_PORT-3100}
+#    configs:
+#      - source: loki_config
+#        target: /mnt/config/loki-config.yml
+    command: -config.file=/mnt/config/loki-config.yml
+    volumes:
+      - loki_data:/data/loki
+      - ./infrastructure/loki/loki-config.yml:/mnt/config/loki-config.yml                                                         # Move to configuration 

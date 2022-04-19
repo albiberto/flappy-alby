@@ -1,13 +1,37 @@
 ﻿version: '3.9'
 
+networks:
+  loki:
+  infra:
+    driver: bridge
+ 
 services:
   flappy-alby:
     image: ${DOCKER_REGISTRY}-flappy-alby
     build:
       context: .
       dockerfile: FlappyAlby.API/Dockerfile
+    networks:
+      - loki
+      - infra
 
   postgres:
     image: postgres:${POSTGRES_TAG-latest}
     container_name: ${POSTGRES_CONTAINER_NAME-postgres}
     restart: unless-stopped
+    networks:
+      - infra
+    
+  grafana:
+    image: grafana/grafana:${GRAFANA_TAG-latest}
+    container_name: ${GRAFANA_CONTAINER_NAME-grafana}
+    restart: unless-stopped
+    networks:
+      - loki  
+    
+  loki:
+    image: grafana/loki:${LOKI_TAG-latest}
+    container_name: ${LOKI_CONTAINER_NAME-loki}
+    restart: unless-stopped
+    networks:
+      - loki
