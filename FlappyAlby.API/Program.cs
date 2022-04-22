@@ -52,6 +52,6 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapMetrics();
     endpoints.MapControllers();
-}); 
+});
 
 app.Run();

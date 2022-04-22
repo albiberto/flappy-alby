@@ -12,21 +12,21 @@ deleteDatasources:
 # what's available in the database
 datasources:
   - name: "Loki"
-    id:	1
+    id: 1
     uid: "hlk52w-nk"
     orgId: 1
     type: "loki"
     typeName: "Loki"
-    access:	"proxy"
+    access: "proxy"
     url: "loki:3100"
-    password:	""
+    password: ""
     user: ""
     database: ""
     basicAuth: false
     isDefault: true
-    jsonData: {}
+    jsonData: { }
     readOnly: false
-    
+
   - name: Prometheus
     type: prometheus
     # Access mode - proxy (server in the UI) or direct (browser in the UI).
