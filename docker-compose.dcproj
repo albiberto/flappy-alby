@@ -17,8 +17,11 @@
         <None Include=".dockerignore" />
     </ItemGroup>
     <ItemGroup>
+      <Content Include="infrastructure\alert-manager\alert-manager-config.yml" />
       <Content Include="infrastructure\grafana\grafana.ini" />
       <Content Include="infrastructure\grafana\provisioning\datasources\datasources.yml" />
       <Content Include="infrastructure\loki\loki-config.yml" />
+      <Content Include="infrastructure\prometheus\alert-rules.yml" />
+      <Content Include="infrastructure\prometheus\prometheus-config.yml" />
     </ItemGroup>
 </Project>

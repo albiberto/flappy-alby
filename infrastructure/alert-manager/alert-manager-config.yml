@@ -1,0 +1,13 @@
+﻿route:
+  receiver: 'mail'
+  repeat_interval: 1m
+  group_by: [ alertname ]
+
+receivers:
+  - name: 'mail'
+    email_configs:
+      - smarthost: 'smtp.gmail.com:587'
+        auth_username: 'cowboysteamts@gmail.com'
+        auth_password: "xv6qQ83n7JNMGhR"
+        from: 'cowboysteamts@gmail.com'
+        to: 'aviezzi@outlook.com'

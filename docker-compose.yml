@@ -4,6 +4,10 @@ networks:
   loki:
   infra:
     driver: bridge
+  monitoring-external:
+    driver: bridge
+  monitoring-internal:
+    driver: bridge
  
 services:
   flappy-alby:
@@ -12,6 +16,7 @@ services:
       context: .
       dockerfile: FlappyAlby.API/Dockerfile
     networks:
+      - monitoring-external
       - loki
       - infra
 
@@ -20,6 +25,7 @@ services:
     container_name: ${POSTGRES_CONTAINER_NAME-postgres}
     restart: unless-stopped
     networks:
+      - monitoring-external
       - infra
     
   grafana:
@@ -27,11 +33,42 @@ services:
     container_name: ${GRAFANA_CONTAINER_NAME-grafana}
     restart: unless-stopped
     networks:
-      - loki  
+      - monitoring-external
+      - loki
     
   loki:
     image: grafana/loki:${LOKI_TAG-latest}
     container_name: ${LOKI_CONTAINER_NAME-loki}
     restart: unless-stopped
     networks:
+      - monitoring-external
       - loki
+      
+  prometheus:
+    image: prom/prometheus:${PROMETHEUS_TAG-latest}
+    container_name: ${PROMETHEUS_CONTAINER_NAME-prometheus}
+    restart: unless-stopped
+    networks:
+      - monitoring-external
+      - monitoring-internal
+
+  alert-manager:
+    image: prom/alertmanager:${ALERT_MANAGER_TAG-latest}
+    container_name: ${ALERT_MANAGER_CONTAINER_NAME-prometheus}
+    restart: unless-stopped
+    networks:
+      - monitoring-internal
+      
+  node-exporter:
+    image: prom/node-exporter:${NODE_EXPORTER_TAG-latest}
+    container_name: ${NODE_EXPORTER_CONTAINER_NAME-node-exporter}
+    restart: unless-stopped
+    networks:
+      - monitoring-external
+        
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_TAG-latest}
+    container_name: ${POSTGRES_EXPORTER_CONTAINER_NAME-postgres-exporter}
+    restart: unless-stopped
+    networks:
+      - monitoring-external

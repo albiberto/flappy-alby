@@ -2,6 +2,7 @@ using FlappyAlby.API.Extensions;
 using FlappyAlby.API.Infrastructure;
 using FlappyAlby.API.Options;
 using Microsoft.EntityFrameworkCore;
+using Prometheus;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +32,8 @@ var app = builder.Build();
 
 await app.MigrateContextAsync<FlappyAlbyContext>();
 
+app.UseRouting();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -43,6 +46,12 @@ app.UseStaticFiles();
 
 app.UseAuthorization();
 
-app.MapControllers();
+
+app.UseHttpMetrics();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapMetrics();
+    endpoints.MapControllers();
+}); 
 
 app.Run();
