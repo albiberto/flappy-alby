@@ -56,7 +56,7 @@ services:
       - grafana_data:/var/lib/grafana                                                                                             # Storage Grafana's data
       - ./infrastructure/grafana/provisioning/datasources/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml   # Move to configuration
       - ./infrastructure/grafana/grafana.ini:/etc/grafana/grafana.ini                                                             # Move to configuration                             
-        
+      - ./infrastructure/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards                                     # Initialize Grafana dashboards  
   loki:
     ports:
       - ${LOKI_PORT-3100}:${LOKI_PORT-3100}
