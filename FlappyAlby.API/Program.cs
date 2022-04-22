@@ -13,14 +13,14 @@ builder.Services.AddLogging(b => b.AddSerilog(Log.Logger, true));
 
 Log.Information("Starting up...");
 
-builder.AddServices();
+builder.ConfigureServices();
 
 Log.Information("Building application...");
 
 var app = builder.Build();
 
 await app.MigrateContextAsync<FlappyAlbyContext>();
-app.UsePipeline();
+app.Configure();
 
 Log.Information("Starting application...");
 

@@ -6,7 +6,7 @@ using Prometheus;
 
 public static class Bootstrap
 {
-    public static void AddServices(this WebApplicationBuilder builder)
+    public static void ConfigureServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
@@ -17,7 +17,7 @@ public static class Bootstrap
             options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultDatabase") ?? throw new NullReferenceException("Cannot retrieve connection string")));
     }
 
-    public static void UsePipeline(this WebApplication app)
+    public static void Configure(this WebApplication app)
     {
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -32,7 +32,6 @@ public static class Bootstrap
         app.UseRouting();
         app.UseAuthorization();
 
-        // app.UseHttpMetrics();
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapMetrics();
