@@ -17,6 +17,8 @@ configs:
 volumes:
   postgres_data:
     name: ${POSTGRES_VOLUME}
+  postgres_data_data:
+    name: ${POSTGRES_VOLUME}_data
   grafana_data:
     name: ${GRAFANA_VOLUME}
   loki_data:
@@ -26,6 +28,8 @@ volumes:
   prometheus_data:
     name: ${PROMETHEUS_VOLUME}
   alert-manager_data:
+    name: ${ALERT_MANAGER_VOLUME} 
+  alert-manager_data_data:
     name: ${ALERT_MANAGER_VOLUME}
 
 services:
@@ -43,6 +47,7 @@ services:
       - ${POSTGRES_PORT-5432}:${POSTGRES_PORT-5432}
     volumes:
       - postgres_data:/var/lib/postgresql
+      - postgres_data_data:/var/lib/postgresql/data
   
   grafana:
     ports:
@@ -91,7 +96,8 @@ services:
     ports:
       - ${ALERTMANAGER_PORT-9093}:${ALERT_MANAGER_PORT-9093}
     volumes:
-      - alert-manager_data:/data
+      - alert-manager_data:/alertmanager
+      - alert-manager_data_data:/data
       - ./infrastructure/alert-manager/alert-manager-config.yml:/mnt/config/alert-manager-config.yml                               # Move to configuration
     command: --config.file=/mnt/config/alert-manager-config.yml --log.level=debug
     #    configs:
@@ -102,15 +108,15 @@ services:
   node-exporter:
     ports:
       - ${NODE_EXPORTER_PORT-9100}:${NODE_EXPORTER_PORT-9100}
-    volumes:
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-      - /:/rootfs:ro
-    command:
-      - '--path.procfs=/host/proc'
-      - '--path.rootfs=/rootfs'
-      - '--path.sysfs=/host/sys'
-      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+#    volumes:
+#      - ./infrastructure/node-exporter/node-exporter/proc:/host/proc:ro
+#      - ./infrastructure/node-exporter/node-exporter/sys:/host/sys:ro
+#      - ./infrastructure/node-exporter/node-exporter:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
   
   postgres-exporter:
     ports:
