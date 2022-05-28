@@ -24,4 +24,6 @@ app.Configure();
 
 Log.Information("Starting application...");
 
-app.Run();
+await app.RunAsync();
+
+Log.Information("Application Started!");

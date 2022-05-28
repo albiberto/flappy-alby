@@ -10,56 +10,56 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0-preview.3.22175.1"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0-preview.3.22175.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0-preview.3.22175.1">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="prometheus-net" Version="6.0.0"/>
-        <PackageReference Include="prometheus-net.AspNetCore" Version="6.0.0"/>
-        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1"/>
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.0-preview.3"/>
-        <PackageReference Include="Polly" Version="7.2.3"/>
-        <PackageReference Include="Serilog.Sinks.Grafana.Loki" Version="7.1.1"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0"/>
-        <PackageReference Include="Serilog" Version="2.10.0"/>
-        <PackageReference Include="Serilog.AspNetCore" Version="5.0.0"/>
-        <PackageReference Include="Serilog.Enrichers.ApplicationName" Version="0.1.0-rc0000"/>
-        <PackageReference Include="Serilog.Enrichers.Context" Version="4.2.0"/>
-        <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0"/>
-        <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0"/>
-        <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1"/>
-        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0"/>
-        <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0"/>
-        <PackageReference Include="Serilog.Enrichers.Process" Version="2.0.2"/>
-        <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0"/>
+        <PackageReference Include="prometheus-net" Version="6.0.0" />
+        <PackageReference Include="prometheus-net.AspNetCore" Version="6.0.0" />
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.0-preview.3" />
+        <PackageReference Include="Polly" Version="7.2.3" />
+        <PackageReference Include="Serilog.Sinks.Grafana.Loki" Version="7.1.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+        <PackageReference Include="Serilog" Version="2.10.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+        <PackageReference Include="Serilog.Enrichers.ApplicationName" Version="0.1.0-rc0000" />
+        <PackageReference Include="Serilog.Enrichers.Context" Version="4.2.0" />
+        <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+        <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+        <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+        <PackageReference Include="Serilog.Enrichers.Process" Version="2.0.2" />
+        <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\favicon.png"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\Nintendo.ttf"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\app.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\core\ai.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\core\area.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\core\block.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\core\player.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\core\stopwatch.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\game.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\helpers\helpers.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\model\coordinate.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\model\options.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\schemas\barrierSchema.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\schemas\shemaBase.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\httpService.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\levelService.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\livesService.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\overlayService.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\rankingService.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\statisticsService.js"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\img\documentation\structure.png"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\img\player.jpg"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\style\app.css"/>
-        <_ContentIncludedByDefault Remove="wwwroot\assets\style\site.css"/>
+        <_ContentIncludedByDefault Remove="wwwroot\assets\favicon.png" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\Nintendo.ttf" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\app.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\core\ai.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\core\area.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\core\block.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\core\player.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\core\stopwatch.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\game.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\helpers\helpers.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\model\coordinate.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\model\options.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\schemas\barrierSchema.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\schemas\shemaBase.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\httpService.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\levelService.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\livesService.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\overlayService.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\rankingService.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\game\services\statisticsService.js" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\img\documentation\structure.png" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\img\player.jpg" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\style\app.css" />
+        <_ContentIncludedByDefault Remove="wwwroot\assets\style\site.css" />
     </ItemGroup>
 
 </Project>

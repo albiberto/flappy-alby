@@ -35,7 +35,7 @@ volumes:
 services:
   flappy-alby:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_ENVIRONMENT=${FLAPPY_ALBY_ENVIRONMENT-Staging}
     ports:
       - ${FLAPPY_ALBY_EXTERNAL_PORT-5000}:${FLAPPY_ALBY_INTERNAL_PORT-80}
 

@@ -11,7 +11,7 @@ networks:
 
 services:
   flappy-alby:
-    image: ${DOCKER_REGISTRY}-flappy-alby
+    image: ${DOCKER_REGISTRY-development_registry}-flappy-alby
     build:
       context: .
       dockerfile: FlappyAlby.API/Dockerfile
