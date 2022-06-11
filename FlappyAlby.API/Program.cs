@@ -11,19 +11,19 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Services.AddLogging(b => b.AddSerilog(Log.Logger, true));
 
-Log.Information("Starting up...");
+Log.Information("Bootstrapping ...");
 
 builder.ConfigureServices();
 
-Log.Information("Building application...");
+Log.Information("Building ...");
 
 var app = builder.Build();
 
 await app.MigrateContextAsync<FlappyAlbyContext>();
 app.Configure();
 
-Log.Information("Starting application...");
+Log.Information("Starting ...");
 
 await app.RunAsync();
 
-Log.Information("Application Started!");
+Log.Information("Stopping ...");

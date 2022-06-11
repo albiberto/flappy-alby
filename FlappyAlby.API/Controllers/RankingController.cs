@@ -19,6 +19,19 @@ public class RankingController : ControllerBase
         _logger = logger;
     }
 
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        var ranking = await _context.Ranking
+            .Include(r => r.Player)
+            .OrderBy(s => s.Total)
+            .Take(5)
+            .Select(s => new ScoreDto(s.PlayerName, s.Total))
+            .ToListAsync();
+
+        return Ok(ranking);
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] ScoreDto scoreDto)
     {
@@ -37,13 +50,7 @@ public class RankingController : ControllerBase
             await _context.Ranking.AddAsync(score);
             await _context.SaveChangesAsync();
 
-            var ranking = _context.Ranking
-                .Include(r => r.Player)
-                .OrderBy(s => s.Total)
-                .Take(5)
-                .Select(s => new ScoreDto(s.PlayerName, s.Total));
-
-            return Ok(ranking);
+            return Created(string.Empty, score);
         }
         catch (Exception e)
         {

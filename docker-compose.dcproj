@@ -10,6 +10,9 @@
     </PropertyGroup>
     <ItemGroup>
         <None Include=".env" />
+        <None Include=".env-staging">
+          <DependentUpon>.env</DependentUpon>
+        </None>
         <None Include="docker-compose.override.yml">
             <DependentUpon>docker-compose.yml</DependentUpon>
         </None>
@@ -17,7 +20,11 @@
         <None Include=".dockerignore" />
     </ItemGroup>
     <ItemGroup>
+        <Content Include=".github\workflows\docker-image-PROD.yml" />
         <Content Include=".github\workflows\docker-image.yml" />
+        <Content Include="docker-compose.staging.override.yml">
+          <DependentUpon>docker-compose.yml</DependentUpon>
+        </Content>
         <Content Include="infrastructure\alert-manager\alert-manager-config.yml" />
         <Content Include="infrastructure\grafana\grafana.ini" />
         <Content Include="infrastructure\grafana\provisioning\dashboards\alertmanager_rev4.json" />

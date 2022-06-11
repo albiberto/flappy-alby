@@ -9,20 +9,11 @@
     }
   },
   "profiles": {
-    "FlappyAlby.API.DEV": {
+    "FlappyAlby.API.DEBUG": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:7126;http://localhost:5126",
-      "dotnetRunMessages": true
-    },
-    "FlappyAlby.API.PROD": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Production"
+        "ASPNETCORE_ENVIRONMENT": "Debug"
       },
       "applicationUrl": "https://localhost:7126;http://localhost:5126",
       "dotnetRunMessages": true

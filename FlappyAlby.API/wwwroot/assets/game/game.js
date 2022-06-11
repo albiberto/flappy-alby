@@ -35,8 +35,7 @@ export class Game {
     async nextLevel() {
         if (this.#finalLevelOver) {
             this.#overlayService.disable();
-            const leaders = await this.#rankingClient.send(this.#overlayService.getName, this.#stopwatch.total);
-            this.#overlayService.congratulations(leaders);
+            this.#overlayService.congratulations(await this.#rankingClient.get());
             this.#finalLevelOver = false;
             return;
         }
@@ -88,7 +87,7 @@ export class Game {
     }
 
     // look at collisions and kills player or consumes lives
-    #onGameOver() {
+    async #onGameOver() {
         // GAME Status Table                | crashed   | alive |
         // Game Over   (you LOOSE)          | 1         | 0     |
         // Kill        (CONTINUE)           | 1         | 1     |
@@ -107,7 +106,7 @@ export class Game {
             } else {
                 // Game Over (you LOOSE)  =>  players.count <= 0
                 this.#stopwatch.stop();
-                this.#overlayService.youLose(this.#stopwatch, async () => await this.#rankingClient.get());
+                this.#overlayService.youLose(this.#stopwatch, await this.#rankingClient.get());
                 this.#levelService.reset();
             }
         }
@@ -132,6 +131,7 @@ export class Game {
                 this.#livesService.kill();
                 this.#levelService.reset();
                 this.#finalLevelOver = true;
+                await this.#rankingClient.send(this.#overlayService.getName, this.#stopwatch.total);
             } else {
                 // SOME REMAINING LEVELS (NEXT Level) => levelIndex <= totalLevels
                 this.#stopwatch.lap();

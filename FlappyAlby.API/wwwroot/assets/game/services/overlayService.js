@@ -66,11 +66,13 @@
         this.#score.innerHTML = OverlayService.#timesBuilder(stopwatch);
     }
 
-    youLose(stopwatch) {
+    youLose(stopwatch, leaders) {
         this.#overlay.style.display = 'flex';
         this.#score.style.display = 'block';
         this.#leaderboard.style.display = 'none';
         this.#player.style.display = 'none';
+
+        this.#buildLeaderBoard(leaders);
 
         this.#title.innerHTML = 'You Lose!';
         this.#button.innerHTML = 'Retry';
@@ -93,15 +95,18 @@
     }
 
     congratulations(leaders) {
-        this.#leaderboard.style.display = 'block';
         this.#player.style.display = 'none';
         this.#score.style.display = 'none';
         this.#button.style.display = 'inline-block';
         this.#button.disabled = false;
+        
+        this.#buildLeaderBoard(leaders);
 
         this.#title.innerHTML = 'Congratulations!';
         this.#button.innerHTML = 'Play Again';
-
+    }
+    
+    #buildLeaderBoard(leaders) {
         const result = JSON.parse(leaders);
 
         let board = '<ol>';
@@ -112,5 +117,6 @@
         board += '</ol>';
 
         this.#leaderboard.innerHTML = board;
+        this.#leaderboard.style.display = 'block';
     }
 }
