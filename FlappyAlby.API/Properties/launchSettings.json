@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "FlappyAlby.API.DEBUG": {
+    "FlappyAlby.DEBUG": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
