@@ -3,24 +3,32 @@
 <head>
     <title>Flappy Alby</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <link href="assets/favicon.png" rel="shortcut icon" type="image/jpg"/>
 
     <link href="assets/style/site.css" rel="stylesheet" type="text/css">
     <link href="assets/style/game.css" rel="stylesheet" type="text/css">
     <link href="assets/style/overlay.css" rel="stylesheet" type="text/css">
+    <link href="assets/style/touchpad.css" rel="stylesheet" type="text/css">
+    
+    <!--    Media Queries-->
+    <link href="assets/style/media/desktop.css" media="screen and (min-width: 1001px)" rel="stylesheet" type="text/css">
+    <link href="assets/style/media/phone-portrait.css" media="only screen and (orientation : portrait)" rel="stylesheet" type="text/css">
+    <link href="assets/style/media/phone-landscape.css" media="only screen and (max-width: 1000px) and (orientation : landscape)" rel="stylesheet" type="text/css">
 
     <script src="assets/game/app.js" type="module"></script>
 </head>
 <body>
 
 <div id="container">
+    <div id="header"></div>
     <div id="game">
-        <div id="header">
-            <div id="header-title">Flappy Alby</div>
+        <div class="touchpad">
+            <div id="top" class="button">U</div>
+            <div id="bottom" class="button">D</div>
         </div>
         <div id="area">
-
             <!-- OVERLAY -->
             <div id="overlay">
                 <div>
@@ -52,8 +60,11 @@
                 <div class="row-right" id="speed"></div>
             </div>
         </div>
+        <div class="touchpad">
+            <div id="right" class="button">R</div>
+            <div id="left" class="button">L</div>
+        </div>
     </div>
 </div>
-
 </body>
 </html>

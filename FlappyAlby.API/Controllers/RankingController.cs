@@ -50,7 +50,7 @@ public class RankingController : ControllerBase
             await _context.Ranking.AddAsync(score);
             await _context.SaveChangesAsync();
 
-            return Created(string.Empty, score);
+            return Created(string.Empty, new {score.PlayerName, score.Total});
         }
         catch (Exception e)
         {

@@ -4,8 +4,8 @@
     flex-direction: column;
     justify-content: space-between;
     background: rgb(230, 230, 230, .5);
-    height: 400px;
-    width: 600px;
+    height: 100%;
+    width: 100%;
     border: black solid 1px;
 
     overflow: hidden;

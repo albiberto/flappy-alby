@@ -1,0 +1,49 @@
+﻿﻿#header {
+    display: none;
+    margin: 0;
+}
+
+#game {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#area {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgb(230, 230, 230, .5);
+    height: 100%;
+    width: 80%;
+    border: black solid 1px;
+
+    overflow: hidden;
+    z-index: 0;
+}
+
+.touchpad {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    width: 10%;
+
+    -webkit-user-select: none; /* Safari */
+    user-select: none; /* Standard syntax */
+}
+
+.button {
+    height: 50%;
+    width: 100%;
+
+    background-color: red;
+}
+
+.button:first-child {
+    background-color: blue;
+}

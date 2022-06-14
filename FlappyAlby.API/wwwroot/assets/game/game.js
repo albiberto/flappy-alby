@@ -35,8 +35,11 @@ export class Game {
     async nextLevel() {
         if (this.#finalLevelOver) {
             this.#overlayService.disable();
-            this.#overlayService.congratulations(await this.#rankingClient.get());
+            await this.#rankingClient.send(this.#overlayService.getName, this.#stopwatch.total)
+            const leaders = await this.#rankingClient.get();
+            this.#overlayService.congratulations(leaders);
             this.#finalLevelOver = false;
+            this.#overlayService.enable();
             return;
         }
 
@@ -131,7 +134,6 @@ export class Game {
                 this.#livesService.kill();
                 this.#levelService.reset();
                 this.#finalLevelOver = true;
-                await this.#rankingClient.send(this.#overlayService.getName, this.#stopwatch.total);
             } else {
                 // SOME REMAINING LEVELS (NEXT Level) => levelIndex <= totalLevels
                 this.#stopwatch.lap();

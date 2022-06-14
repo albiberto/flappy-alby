@@ -61,5 +61,5 @@
         <_ContentIncludedByDefault Remove="wwwroot\assets\style\app.css" />
         <_ContentIncludedByDefault Remove="wwwroot\assets\style\site.css" />
     </ItemGroup>
-
+    
 </Project>

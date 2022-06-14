@@ -26,22 +26,10 @@
         return this.#playerInput.value ?? '';
     }
 
-    static #timesBuilder(stopwatch) {
-        const final = stopwatch.final;
-        const total = new Date(stopwatch.total);
-
-        return `<p>Completed In: ${final.getMinutes().round2()}:${final.getSeconds().round2()}:${final.getMilliseconds().round2()}</p>
-                <p>Total Time: ${total.getMinutes().round2()}:${total.getSeconds().round2()}:${total.getMilliseconds().round2()}</p>`;
-    }
-
     startGame() {
         this.#overlay.style.display = 'none';
     }
-
-    disable() {
-        this.#button.disabled = true;
-    }
-
+    
     continue(stopwatch) {
         this.#overlay.style.display = 'flex';
         this.#score.style.display = 'block';
@@ -105,6 +93,9 @@
         this.#title.innerHTML = 'Congratulations!';
         this.#button.innerHTML = 'Play Again';
     }
+
+    disable = () => this.#button.disabled = true;
+    enable = () => this.#button.disabled = false;
     
     #buildLeaderBoard(leaders) {
         const result = JSON.parse(leaders);
@@ -118,5 +109,13 @@
 
         this.#leaderboard.innerHTML = board;
         this.#leaderboard.style.display = 'block';
+    }
+
+    static #timesBuilder(stopwatch) {
+        const final = stopwatch.final;
+        const total = new Date(stopwatch.total);
+
+        return `<p>Completed In: ${final.getMinutes().round2()}:${final.getSeconds().round2()}:${final.getMilliseconds().round2()}</p>
+                <p>Total Time: ${total.getMinutes().round2()}:${total.getSeconds().round2()}:${total.getMilliseconds().round2()}</p>`;
     }
 }
