@@ -26,7 +26,10 @@ import {SpeedService} from "./services/speedService.js";
     const speed = document.getElementById('speed');
     const lives = document.getElementById('lives');
 
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => run());
+    window.addEventListener('resize', () => run());
+
+    function run() {
         const coordinate = new Coordinate(0, 0, area.clientHeight, area.clientWidth);
         const levels = buildLevels(coordinate);
 
@@ -44,8 +47,8 @@ import {SpeedService} from "./services/speedService.js";
             const level = await game.nextLevel();
             level?.();
         };
-    });
-
+    }
+    
     function buildLevels(coordinate) {
         const levelsOptions = [];
         for (let i = 1; i < 6; i++) {
