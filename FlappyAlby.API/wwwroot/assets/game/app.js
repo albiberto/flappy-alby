@@ -54,7 +54,7 @@ import {SpeedService} from "./services/speedService.js";
         for (let i = 1; i < 6; i++) {
             const playerSide = coordinate.width / 20;
             const playerCoordinate = new Coordinate((coordinate.height - playerSide) / 2, coordinate.width * .1, playerSide, playerSide);
-            levelsOptions.push(new Option(playerCoordinate, i / 2, i / 2 + 2, i * 5000));
+            levelsOptions.push(new Option(playerCoordinate, i / 2, i / 2 + 2, i * 10000));
         }
 
         return levelsOptions;
