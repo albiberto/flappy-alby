@@ -24,14 +24,14 @@
         document.getElementById("left").onpointerdown = e => this.#map[this.#map.left] = true;
         document.getElementById("left").onpointerup = e => this.#map[this.#map.left] = false;
         
-        document.getElementById("top").onpointerdown = e => this.#map[this.#map.top] = true;
-        document.getElementById("top").onpointerup = e => this.#map[this.#map.top] = false;
+        document.getElementById("up").onpointerdown = e => this.#map[this.#map.top] = true;
+        document.getElementById("up").onpointerup = e => this.#map[this.#map.top] = false;
         
         document.getElementById("right").onpointerdown = e => this.#map[this.#map.right] = true;
         document.getElementById("right").onpointerup = e => this.#map[this.#map.right] = false;
        
-        document.getElementById("bottom").onpointerdown = e => this.#map[this.#map.bottom] = true;
-        document.getElementById("bottom").onpointerup = e => this.#map[this.#map.bottom] = false;
+        document.getElementById("down").onpointerdown = e => this.#map[this.#map.bottom] = true;
+        document.getElementById("down").onpointerup = e => this.#map[this.#map.bottom] = false;
         
         this.#animate(steps)
     }
